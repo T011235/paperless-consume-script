@@ -1,0 +1,12 @@
+Type=simple
+ExecStart=/usr/local/bin/paperless-consume-spooler.sh
+Restart=on-failure
+User=root
+EnvironmentFile=/etc/paperless-consume-spooler.env
+StandardOutput=append:/var/log/paperless-consume-spooler.log
+StandardError=append:/var/log/paperless-consume-spooler.log
+PIDFile=/var/run/paperless-consume-spooler.pid
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target
