@@ -34,7 +34,7 @@ sudo chmod +x /usr/local/bin/paperless-consume-spooler.sh
 sudo cp systemd/paperless-consume-spooler.service /etc/systemd/system/
 ```
 ### ⚙️ 2. Konfiguriere Umgebungsvariablen
-Lege eine Datei an:
+Lege eine .env Datei an:
 ```bash
 sudo nano /etc/paperless-uploader.env
 ```
@@ -43,8 +43,6 @@ Inhalt:
 ```env
 API_TOKEN=dein-paperless-api-token
 PAPERLESS_URL=http://localhost:8000
-WATCH_DIRS="/home/lexmark/consume /home/andererordner/ftp-upload"
-Hinweis: Mehrere Ordner mit Leerzeichen trennen.
 ```
 
 ### 🔐 3. Log-Datei & Lock-Datei vorbereiten
@@ -91,9 +89,8 @@ Erfordert inotify-tools und curl:
 
 ```bash
 sudo apt install inotify-tools curl
-Das Skript löscht nur Dateien, die erfolgreich übertragen wurden.
 ```
-
+Das Skript löscht nur Dateien, die erfolgreich übertragen wurden.
 Der Dienst verarbeitet ausschließlich .pdf-Dateien.
 
 📜 Lizenz
